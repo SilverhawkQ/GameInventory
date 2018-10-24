@@ -11,6 +11,26 @@ public class controller {
     public void init() {
         v.setVisible(true);
 
+        v.addAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                v.getName();
+            }
+        });
+        
+        v.editAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                
+            }
+        });
+        
+        v.removeAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                
+            }
+        });
     }
 
     public static void main(String[] args) {
