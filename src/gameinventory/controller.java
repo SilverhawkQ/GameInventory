@@ -2,19 +2,19 @@ package gameinventory;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
 
 public class controller {
-    private model m = new model();
-    private view v = new view();
-    private String a = "";
+
     
-    public void init() {
+    public void init(view v, model m, Database db) {
         v.setVisible(true);
 
-        v.addAction(new ActionListener() {
+        v.addAction(new ActionListener() {       
+            
             @Override
             public void actionPerformed(ActionEvent evt) {
-                v.getName();
+               
             }
         });
         
@@ -33,8 +33,4 @@ public class controller {
         });
     }
 
-    public static void main(String[] args) {
-        new controller().init();
-
-    }
 }
