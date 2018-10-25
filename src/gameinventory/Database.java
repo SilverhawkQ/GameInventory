@@ -20,35 +20,9 @@ public class Database {
     Statement stmt = null;
     ResultSet rs = null;
 
-    public void c() throws ClassNotFoundException {
 
-        try {
-            System.out.println("Connected");
-            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-
-            stmt = conn.createStatement();
-            String useproject2 = "use project2";
-            stmt.executeUpdate(useproject2);
-
-            String showchoice = "select * from choice";
-            rs = stmt.executeQuery(showchoice);
-            while (rs.next()) {
-                System.out.printf("%-14s\t", rs.getString(1));
-                System.out.printf("%-14s\t", rs.getString(2));
-                System.out.printf("%-14s\t", rs.getString(3));
-                System.out.printf("%-14s\t", rs.getString(4));
-                System.out.printf("%-14s\t\n", rs.getString(5));
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println("Connected");
-    }
-
-    public void CreateTable() throws ClassNotFoundException {
+    public void CreateTable(String tableName, String fields) throws ClassNotFoundException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -58,8 +32,10 @@ public class Database {
             String useproject2 = "use project2";
             stmt.executeUpdate(useproject2);
 
-            String tab = "CREATE TABLE choice(id int, title varchar(255), price double, quantity int)";
-            rs = stmt.executeQuery(tab);
+            PreparedStatement tab = conn.prepareStatement("CREATE TABLE IF NOT EXISTS "+tableName+fields);;
+            tab.executeUpdate();
+
+            
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -67,7 +43,7 @@ public class Database {
     }
 
     public void fillTable(view v) throws SQLException {
-        ResultSet s;
+
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             stmt = conn.createStatement();
@@ -85,8 +61,8 @@ public class Database {
 
     }
 
-    public void addGame(String id, String title, String price, String quantity) throws SQLException {
-        ResultSet s;
+    public void addGame(String id, String title, String description, String price, String quantity) throws SQLException {
+
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             stmt = conn.createStatement();
@@ -94,22 +70,47 @@ public class Database {
             String useproject2 = "use project2";
             stmt.executeUpdate(useproject2);
 
-            String showchoice = "Insert into choice values(?,?,?,?)";
+            String showchoice = "Insert into choice values(?,?,?,?,?)";
             PreparedStatement p;
             p = conn.prepareStatement(showchoice);
              
             p.setString(1, id);
             p.setString(2, title);
-            p.setString(3, price);
-            p.setString(4, quantity);
+            p.setString(3, description);
+            p.setString(4, price);
+            p.setString(5, quantity);
             
            
 
-            int result = p.executeUpdate();;
+            p.executeUpdate();;
             conn.commit();
             p.close();
 
             //v.setGameTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void deleteGame(String id, String title, String description, String price, String quantity) throws SQLException {
+
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String useproject2 = "use project2";
+            stmt.executeUpdate(useproject2);
+
+            String showchoice = "DELETE from choice where title='"+title+"' OR id='"+id+"'";
+            PreparedStatement p;
+            p = conn.prepareStatement(showchoice);
+
+            p.executeUpdate();;
+            conn.commit();
+            p.close();
+
+
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }

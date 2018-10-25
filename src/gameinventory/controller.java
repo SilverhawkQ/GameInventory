@@ -20,7 +20,7 @@ public class controller {
 
                 try {
                     System.out.println(v.getIDAdd()+ v.getNameAdd() + v.getPriceAdd() + v.getQuantityAdd());
-                    d.addGame(v.getIDAdd(), v.getNameAdd(), v.getPriceAdd(), v.getQuantityAdd());
+                    d.addGame(v.getIDAdd(), v.getNameAdd(), v.getDescriptionAdd(), v.getPriceAdd(), v.getQuantityAdd());
                 } catch (SQLException ex) {
                     Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -40,7 +40,11 @@ public class controller {
         v.removeAction(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                
+                try{
+                    d.deleteGame(v.getIDAdd(), v.getNameAdd(), v.getDescriptionAdd(), v.getPriceAdd(), v.getQuantityAdd());
+                }catch (SQLException ex){
+                    Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
