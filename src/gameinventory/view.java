@@ -1,6 +1,8 @@
 package gameinventory;
 
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import org.apache.commons.dbutils.DbUtils;
 
 public class view extends javax.swing.JFrame {
 
@@ -323,6 +325,7 @@ public class view extends javax.swing.JFrame {
         quantityField1.setText(Double.toString(d));
     }
     
+
     
     /**
      * @param args the command line arguments
@@ -384,4 +387,6 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel1;
     private javax.swing.JLabel titleLabel2;
     // End of variables declaration//GEN-END:variables
+
+
 }

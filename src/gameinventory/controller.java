@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class controller {
 
     
-    public void init(view v, model m, Database db) {
+    public void init(view v, model m) {
         v.setVisible(true);
 
         v.addAction(new ActionListener() {       
