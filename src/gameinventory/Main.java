@@ -1,8 +1,10 @@
 package gameinventory;
 
+import java.sql.SQLException;
+
 public class Main {
     
-    public static void main(String[] args) throws ClassNotFoundException{
+    public static void main(String[] args) throws ClassNotFoundException, SQLException{
         view v = new view();
         model m = new model();
         Database d = new Database();

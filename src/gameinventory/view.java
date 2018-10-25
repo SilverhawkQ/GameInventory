@@ -31,22 +31,21 @@ public class view extends javax.swing.JFrame {
         titleLabel3 = new javax.swing.JLabel();
         descriptionField = new javax.swing.JTextField();
         descriptionLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        editButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        gameTable1 = new javax.swing.JTable();
-        titleLabel1 = new javax.swing.JLabel();
-        titleField1 = new javax.swing.JTextField();
-        priceField1 = new javax.swing.JTextField();
-        priceLabel1 = new javax.swing.JLabel();
-        quantityLabel1 = new javax.swing.JLabel();
-        quantityField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        publisherTable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        descriptionTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Game Inventory");
+        setBackground(new java.awt.Color(189, 222, 252));
         setResizable(false);
+
+        jPanel1.setForeground(new java.awt.Color(189, 222, 252));
 
         addButton.setText("Add Game");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,9 +79,12 @@ public class view extends javax.swing.JFrame {
         if (gameTable.getColumnModel().getColumnCount() > 0) {
             gameTable.getColumnModel().getColumn(0).setResizable(false);
             gameTable.getColumnModel().getColumn(1).setResizable(false);
+            gameTable.getColumnModel().getColumn(1).setHeaderValue("Title");
             gameTable.getColumnModel().getColumn(2).setResizable(false);
-            gameTable.getColumnModel().getColumn(3).setResizable(false);
+            gameTable.getColumnModel().getColumn(2).setHeaderValue("Description");
+            gameTable.getColumnModel().getColumn(3).setHeaderValue("Price");
             gameTable.getColumnModel().getColumn(4).setResizable(false);
+            gameTable.getColumnModel().getColumn(4).setHeaderValue("Quantity");
         }
 
         titleLabel2.setText("Title:");
@@ -143,7 +145,7 @@ public class view extends javax.swing.JFrame {
                                 .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,157 +182,141 @@ public class view extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Add/Delete", jPanel1);
 
-        editButton.setText("Edit Game");
-
-        gameTable1.setModel(new javax.swing.table.DefaultTableModel(
+        publisherTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"EPIC GAMES", "Creator and Publisher of Fortnite."},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Title", "Price", "Quantity"
+                "Publisher", "Description"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(gameTable1);
-        if (gameTable1.getColumnModel().getColumnCount() > 0) {
-            gameTable1.getColumnModel().getColumn(0).setResizable(false);
-            gameTable1.getColumnModel().getColumn(1).setResizable(false);
-            gameTable1.getColumnModel().getColumn(2).setResizable(false);
-            gameTable1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane3.setViewportView(publisherTable);
+        if (publisherTable.getColumnModel().getColumnCount() > 0) {
+            publisherTable.getColumnModel().getColumn(0).setResizable(false);
+            publisherTable.getColumnModel().getColumn(1).setResizable(false);
         }
-
-        titleLabel1.setText("Title:");
-
-        priceLabel1.setText("Price:");
-
-        quantityLabel1.setText("Quantity:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(titleLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(titleField1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(quantityLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(quantityField1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(priceLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(priceField1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(titleField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(titleLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(priceField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(priceLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(quantityField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(quantityLabel1))))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-
-        jTabbedPane3.addTab("Edit", jPanel2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1114, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Publisher", jPanel3);
+
+        descriptionTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Fortnite", "Battle Royale"},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Title", "Description"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(descriptionTable);
+        if (descriptionTable.getColumnModel().getColumnCount() > 0) {
+            descriptionTable.getColumnModel().getColumn(0).setResizable(false);
+            descriptionTable.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1114, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(209, 209, 209)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Description", jPanel4);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gameinventory/logo_1.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(62, 62, 62))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addButtonActionPerformed
+    }//GEN-LAST:event_idFieldActionPerformed
 
     private void titleField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_titleField2ActionPerformed
 
-    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idFieldActionPerformed
+    }//GEN-LAST:event_addButtonActionPerformed
 
     public void addAction(ActionListener a) {
         addButton.addActionListener(a);
 
     }
 
-    public void editAction(ActionListener a) {
-        editButton.addActionListener(a);
-    }
 
     public void removeAction(ActionListener a) {
         removeButton.addActionListener(a);
@@ -361,35 +347,6 @@ public class view extends javax.swing.JFrame {
         quantityField2.setText(Double.toString(d));
     }
 
-    //Getters and Setters for controller class
-    public String getNameEdit() {
-        return titleField1.getText();
-    }
-
-    public void setNameEdit(String s) {
-        titleField1.setText(s);
-    }
-
-    public String getPriceEdit() {
-        return priceField1.getText();
-    }
-
-    public void setPriceEdit(double d) {
-        priceField1.setText(Double.toString(d));
-    }
-
-    public String getQuantityEdit() {
-        return quantityField1.getText();
-    }
-
-    public void setQuantityEdit(double d) {
-        quantityField1.setText(Double.toString(d));
-    }
-
-    public void setGameTable(TableModel model) {
-        gameTable.setModel(model);
-    }
-
     public String getIDAdd() {
         return idField.getText();
     }
@@ -406,6 +363,17 @@ public class view extends javax.swing.JFrame {
         descriptionField.setText(s);
     }
     
+    public void setGameModel(TableModel m) {
+        gameTable.setModel(m);
+    }
+    
+     public void setPublisherModel(TableModel m) {
+        descriptionTable.setModel(m);
+    }
+     
+      public void setDescriptionModel(TableModel m) {
+        publisherTable.setModel(m);
+    }
     
     /**
      * @param args the command line arguments
@@ -447,29 +415,25 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JTextField descriptionField;
     private javax.swing.JLabel descriptionLabel;
-    private javax.swing.JButton editButton;
+    private javax.swing.JTable descriptionTable;
     private javax.swing.JTable gameTable;
-    private javax.swing.JTable gameTable1;
     private javax.swing.JTextField idField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextField priceField1;
     private javax.swing.JTextField priceField2;
-    private javax.swing.JLabel priceLabel1;
     private javax.swing.JLabel priceLabel2;
-    private javax.swing.JTextField quantityField1;
+    private javax.swing.JTable publisherTable;
     private javax.swing.JTextField quantityField2;
-    private javax.swing.JLabel quantityLabel1;
     private javax.swing.JLabel quantityLabel2;
     private javax.swing.JButton removeButton;
-    private javax.swing.JTextField titleField1;
     private javax.swing.JTextField titleField2;
-    private javax.swing.JLabel titleLabel1;
     private javax.swing.JLabel titleLabel2;
     private javax.swing.JLabel titleLabel3;
     // End of variables declaration//GEN-END:variables

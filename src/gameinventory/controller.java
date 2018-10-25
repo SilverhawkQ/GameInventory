@@ -10,9 +10,13 @@ import java.util.logging.Logger;
 public class controller {
 
     
-    public void init(view v, Database d) {
+    public void init(view v, Database d) throws SQLException {
         v.setVisible(true);
 
+        d.getTable(v);
+        d.getPublisher(v);
+        d.getDescription(v);
+        
         v.addAction(new ActionListener() {       
             
             @Override
@@ -21,6 +25,8 @@ public class controller {
                 try {
                     System.out.println(v.getIDAdd()+ v.getNameAdd() + v.getPriceAdd() + v.getQuantityAdd());
                     d.addGame(v.getIDAdd(), v.getNameAdd(), v.getDescriptionAdd(), v.getPriceAdd(), v.getQuantityAdd());
+                    
+                    d.getTable(v);
                 } catch (SQLException ex) {
                     Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -30,18 +36,13 @@ public class controller {
             }
         });
         
-        v.editAction(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                
-            }
-        });
         
         v.removeAction(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 try{
                     d.deleteGame(v.getIDAdd(), v.getNameAdd(), v.getDescriptionAdd(), v.getPriceAdd(), v.getQuantityAdd());
+                    d.getTable(v);
                 }catch (SQLException ex){
                     Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
                 }

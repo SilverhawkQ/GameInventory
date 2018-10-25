@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gameinventory;
 
 import java.sql.*;
@@ -42,7 +38,7 @@ public class Database {
 
     }
 
-    public void fillTable(view v) throws SQLException {
+     public void getTable(view v) throws SQLException {
 
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
@@ -51,16 +47,95 @@ public class Database {
             String useproject2 = "use project2";
             stmt.executeUpdate(useproject2);
 
-            String showchoice = "select * from choice";
-            rs = stmt.executeQuery(showchoice);
+            String showchoice = "Select * from choice";
+            PreparedStatement p;
+            p = conn.prepareStatement(showchoice);
 
-            //v.setGameTable();
+            ResultSet rs = p.executeQuery();;
+            v.setGameModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
+            conn.commit();
+            p.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+     
+     public void getPublisher(view v) throws SQLException {
+
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String useproject2 = "use project2";
+            stmt.executeUpdate(useproject2);
+
+            String showchoice = "Insert into publisher values(?,?)";
+            PreparedStatement p;
+            p = conn.prepareStatement(showchoice);
+             
+            p.setString(1, "EPIC GAMES");
+            p.setString(2, "Developer and Publisher of Fortnite.");
+
+            
+           
+
+            p.executeUpdate();;
+            conn.commit();
+            p.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String useproject2 = "use project2";
+            stmt.executeUpdate(useproject2);
+
+            String showchoice = "Select * from publisher";
+            PreparedStatement p;
+            p = conn.prepareStatement(showchoice);
+
+            ResultSet rs = p.executeQuery();;
+            v.setGameModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
+            conn.commit();
+            p.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
+     
+     public void getDescription(view v) throws SQLException {
+
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String useproject2 = "use project2";
+            stmt.executeUpdate(useproject2);
+
+            String showchoice = "Select * from description";
+            PreparedStatement p;
+            p = conn.prepareStatement(showchoice);
+
+            ResultSet rs = p.executeQuery();;
+            v.setGameModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
+            conn.commit();
+            p.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     public void addGame(String id, String title, String description, String price, String quantity) throws SQLException {
 
         try {
