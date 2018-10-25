@@ -2,10 +2,10 @@ package gameinventory;
 
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import javax.swing.table.TableModel;
 import org.apache.commons.dbutils.DbUtils;
 
 public class view extends javax.swing.JFrame {
-
 
     public view() {
         initComponents();
@@ -27,6 +27,8 @@ public class view extends javax.swing.JFrame {
         priceLabel2 = new javax.swing.JLabel();
         quantityLabel2 = new javax.swing.JLabel();
         quantityField2 = new javax.swing.JTextField();
+        idField = new javax.swing.JTextField();
+        titleLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         editButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -90,6 +92,14 @@ public class view extends javax.swing.JFrame {
 
         quantityLabel2.setText("Quantity:");
 
+        idField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFieldActionPerformed(evt);
+            }
+        });
+
+        titleLabel3.setText("ID:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,7 +123,11 @@ public class view extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(priceLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(priceField2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(priceField2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(titleLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(66, 66, 66)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(81, Short.MAX_VALUE))
@@ -128,7 +142,11 @@ public class view extends javax.swing.JFrame {
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(titleLabel3))
+                        .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(titleField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(titleLabel2))
@@ -258,75 +276,85 @@ public class view extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_titleField2ActionPerformed
 
-    
-    
-    public void addAction(ActionListener a){
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idFieldActionPerformed
+
+    public void addAction(ActionListener a) {
         addButton.addActionListener(a);
-        
+
     }
-    
-    public void editAction(ActionListener a){
+
+    public void editAction(ActionListener a) {
         editButton.addActionListener(a);
     }
-    
-    public void removeAction(ActionListener a){
+
+    public void removeAction(ActionListener a) {
         removeButton.addActionListener(a);
     }
-    
-    
-        //Getters and Setters for controller class
-    public String getNameAdd(){
+
+    //Getters and Setters for controller class
+    public String getNameAdd() {
         return titleField2.getText();
     }
-    
-    public void setNameAdd(String s){
+
+    public void setNameAdd(String s) {
         titleField2.setText(s);
     }
-    
-    public String getPriceAdd(){
+
+    public String getPriceAdd() {
         return priceField2.getText();
     }
-    
-    public void setPriceAdd(double d){
+
+    public void setPriceAdd(double d) {
         priceField2.setText(Double.toString(d));
     }
-    
-    public String getQuantityAdd(){
+
+    public String getQuantityAdd() {
         return quantityField2.getText();
     }
-    
-    public void setQuantityAdd(double d){
+
+    public void setQuantityAdd(double d) {
         quantityField2.setText(Double.toString(d));
     }
-    
-    
+
     //Getters and Setters for controller class
-    public String getNameEdit(){
+    public String getNameEdit() {
         return titleField1.getText();
     }
-    
-    public void setNameEdit(String s){
+
+    public void setNameEdit(String s) {
         titleField1.setText(s);
     }
-    
-    public String getPriceEdit(){
+
+    public String getPriceEdit() {
         return priceField1.getText();
     }
-    
-    public void setPriceEdit(double d){
+
+    public void setPriceEdit(double d) {
         priceField1.setText(Double.toString(d));
     }
-    
-    public String getQuantityEdit(){
+
+    public String getQuantityEdit() {
         return quantityField1.getText();
     }
-    
-    public void setQuantityEdit(double d){
+
+    public void setQuantityEdit(double d) {
         quantityField1.setText(Double.toString(d));
     }
-    
 
-    
+    public void setGameTable(TableModel model) {
+        gameTable.setModel(model);
+    }
+
+    public String getIDAdd() {
+        return idField.getText();
+    }
+
+    public void setIDAdd(int i) {
+        idField.setText(Integer.toString(i));
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -368,6 +396,7 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JButton editButton;
     private javax.swing.JTable gameTable;
     private javax.swing.JTable gameTable1;
+    private javax.swing.JTextField idField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -386,7 +415,7 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JTextField titleField2;
     private javax.swing.JLabel titleLabel1;
     private javax.swing.JLabel titleLabel2;
+    private javax.swing.JLabel titleLabel3;
     // End of variables declaration//GEN-END:variables
-
 
 }
