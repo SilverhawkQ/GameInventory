@@ -57,7 +57,7 @@ public class Database {
             String showchoice = "select * from choice";
             rs = stmt.executeQuery(showchoice);
             
-            v.setGameTable(rs);
+            //v.setGameTable();
 
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
