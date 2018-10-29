@@ -34,6 +34,11 @@ public class view extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         publisherTable = new javax.swing.JTable();
+        pubAdd = new javax.swing.JButton();
+        publisheridField = new javax.swing.JTextField();
+        publisherDField = new javax.swing.JTextField();
+        pubIDLABEL = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         descriptionTable = new javax.swing.JTable();
@@ -145,7 +150,7 @@ public class view extends javax.swing.JFrame {
                                 .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,14 +182,13 @@ public class view extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(quantityField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(quantityLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Add/Delete", jPanel1);
 
         publisherTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"EPIC GAMES", "Creator and Publisher of Fortnite."},
                 {null, null},
                 {null, null},
                 {null, null}
@@ -207,28 +211,61 @@ public class view extends javax.swing.JFrame {
             publisherTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        pubAdd.setText("Add Publisher");
+
+        pubIDLABEL.setText("Publisher:");
+
+        jLabel4.setText("Description:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(pubIDLABEL)
+                                .addGap(18, 18, 18)
+                                .addComponent(publisheridField))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(publisherDField, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(74, 74, 74))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(pubAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(76, 76, 76))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(pubAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(publisheridField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pubIDLABEL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(publisherDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Publisher", jPanel3);
 
         descriptionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Fortnite", "Battle Royale"},
                 {null, null},
                 {null, null},
                 {null, null}
@@ -256,16 +293,16 @@ public class view extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addGap(262, 262, 262)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Description", jPanel4);
@@ -321,6 +358,10 @@ public class view extends javax.swing.JFrame {
     public void removeAction(ActionListener a) {
         removeButton.addActionListener(a);
     }
+    
+    public void addPubAction(ActionListener a) {
+        pubAdd.addActionListener(a);
+    }
 
     //Getters and Setters for controller class
     public String getNameAdd() {
@@ -363,16 +404,35 @@ public class view extends javax.swing.JFrame {
         descriptionField.setText(s);
     }
     
+    public String getPublisher(){
+        return publisheridField.getText();
+    }
+    
+    public void setPublisher(String s){
+        publisheridField.setText(s);
+    }
+    
+    public String getPubDescription(){
+        return publisherDField.getText();
+    }
+    
+    public void setPubDescription(String s){
+        publisherDField.setText(s);
+    }
+    
+    
+    
+    //TABLE MODEL TO DISPLAY
     public void setGameModel(TableModel m) {
         gameTable.setModel(m);
     }
     
      public void setPublisherModel(TableModel m) {
-        descriptionTable.setModel(m);
+        publisherTable.setModel(m);
     }
      
       public void setDescriptionModel(TableModel m) {
-        publisherTable.setModel(m);
+        descriptionTable.setModel(m);
     }
     
     /**
@@ -420,6 +480,7 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -429,7 +490,11 @@ public class view extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField priceField2;
     private javax.swing.JLabel priceLabel2;
+    private javax.swing.JButton pubAdd;
+    private javax.swing.JLabel pubIDLABEL;
+    private javax.swing.JTextField publisherDField;
     private javax.swing.JTable publisherTable;
+    private javax.swing.JTextField publisheridField;
     private javax.swing.JTextField quantityField2;
     private javax.swing.JLabel quantityLabel2;
     private javax.swing.JButton removeButton;

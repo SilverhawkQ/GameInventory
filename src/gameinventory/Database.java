@@ -63,31 +63,6 @@ public class Database {
     }
      
      public void getPublisher(view v) throws SQLException {
-
-        try {
-            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            stmt = conn.createStatement();
-
-            String useproject2 = "use project2";
-            stmt.executeUpdate(useproject2);
-
-            String showchoice = "Insert into publisher values(?,?)";
-            PreparedStatement p;
-            p = conn.prepareStatement(showchoice);
-             
-            p.setString(1, "EPIC GAMES");
-            p.setString(2, "Developer and Publisher of Fortnite.");
-
-            
-           
-
-            p.executeUpdate();;
-            conn.commit();
-            p.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
          
          
         try {
@@ -102,7 +77,7 @@ public class Database {
             p = conn.prepareStatement(showchoice);
 
             ResultSet rs = p.executeQuery();;
-            v.setGameModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
+            v.setPublisherModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
             conn.commit();
             p.close();
 
@@ -127,7 +102,7 @@ public class Database {
             p = conn.prepareStatement(showchoice);
 
             ResultSet rs = p.executeQuery();;
-            v.setGameModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
+            v.setDescriptionModel(net.proteanit.sql.DbUtils.resultSetToTableModel(rs));
             conn.commit();
             p.close();
 
@@ -165,8 +140,35 @@ public class Database {
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String useproject2 = "use project2";
+            stmt.executeUpdate(useproject2);
+
+            String sqll = "Insert into description values(?,?)";
+            PreparedStatement p;
+            p = conn.prepareStatement(sqll);
+             
+            p.setString(1, title);
+            p.setString(2, description);
+ 
+            
+           
+
+            p.executeUpdate();;
+            conn.commit();
+            p.close();
+
+            //v.setGameTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
+   
     
     public void deleteGame(String id, String title, String description, String price, String quantity) throws SQLException {
 
@@ -186,6 +188,36 @@ public class Database {
             p.close();
 
 
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+        public void addPublisher(String publisher, String description) throws SQLException {
+
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String useproject2 = "use project2";
+            stmt.executeUpdate(useproject2);
+
+            String showchoice = "Insert into publisher values(?,?)";
+            PreparedStatement p;
+            p = conn.prepareStatement(showchoice);
+             
+            p.setString(1, publisher);
+            p.setString(2, description);
+
+            
+           
+
+            p.executeUpdate();;
+            conn.commit();
+            p.close();
+
+            //v.setGameTable();
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }

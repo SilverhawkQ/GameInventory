@@ -27,6 +27,7 @@ public class controller {
                     d.addGame(v.getIDAdd(), v.getNameAdd(), v.getDescriptionAdd(), v.getPriceAdd(), v.getQuantityAdd());
                     
                     d.getTable(v);
+                    d.getDescription(v);
                 } catch (SQLException ex) {
                     Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -43,6 +44,19 @@ public class controller {
                 try{
                     d.deleteGame(v.getIDAdd(), v.getNameAdd(), v.getDescriptionAdd(), v.getPriceAdd(), v.getQuantityAdd());
                     d.getTable(v);
+                }catch (SQLException ex){
+                    Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
+        
+        v.addPubAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                try{
+                    d.addPublisher(v.getPublisher(), v.getPubDescription());
+                    d.getPublisher(v);
                 }catch (SQLException ex){
                     Logger.getLogger(controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
